@@ -6,7 +6,8 @@
 struct student {
   char osis[10]; // student osis (always 10)
   char* name; // student year
-  unsigned short year; // student year
+  unsigned short yearof; // student year
+  unsigned short curyear;
 };
 
 struct student return_example(){
@@ -18,14 +19,16 @@ struct student return_example(){
   }
   new.osis[9] = 0; // null terminator
   new.name = "Bob Ross";
-  new.year = 2020;
+  new.yearof = 2020;
+  new.curyear = 2018;
   return new;
 }
 
 void print_student(struct student in){
   printf("INFORMATION FOR STUDENT [%s]:\n", in.name);
   printf("Osis number: %s \n", in.osis);
-  printf("Graduation year: %hu\n", in.year);
+  printf("Graduation year: %hu\n", in.yearof);
+  printf("Current year: %hu\n", incuryear);
 }
 
 int main(){
