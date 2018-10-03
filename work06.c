@@ -24,11 +24,20 @@ struct student return_example(){
   return new;
 }
 
+void promote(struct student in) {
+	while (in.curyear != in.yearof) {
+		in.curyear++;
+		printf("\n");
+		print_student(in);
+	}
+	printf("\nCONGRADULATIONS! YOU HAVE GRADUATED.\n\n");
+}
+
 void print_student(struct student in){
   printf("INFORMATION FOR STUDENT [%s]:\n", in.name);
   printf("Osis number: %s \n", in.osis);
   printf("Graduation year: %hu\n", in.yearof);
-  printf("Current year: %hu\n", incuryear);
+  printf("Current year: %hu\n", in.curyear);
 }
 
 int main(){
@@ -39,7 +48,7 @@ int main(){
   struct student rand_student;
   rand_student = return_example();
   print_student(rand_student);
-
+	promote(rand_student);
 
   return 0;
 }
