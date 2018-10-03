@@ -25,12 +25,13 @@ struct student return_example(){
 }
 
 void promote(struct student in) {
-	while (in.curyear != in.yearof) {
-		in.curyear++;
-		printf("\n");
-		print_student(in);
-	}
-	printf("\nCONGRADULATIONS! YOU HAVE GRADUATED.\n\n");
+  in.curyear++;
+	// while (in.curyear != in.yearof) {
+	// 	in.curyear++;
+	// 	printf("\n");
+	// 	print_student(in);
+	// }
+	// printf("\nCONGRADULATIONS! YOU HAVE GRADUATED.\n\n");
 }
 
 void print_student(struct student in){
@@ -38,6 +39,13 @@ void print_student(struct student in){
   printf("Osis number: %s \n", in.osis);
   printf("Graduation year: %hu\n", in.yearof);
   printf("Current year: %hu\n", in.curyear);
+
+  // if statemnt
+  if (0){
+    printf("Student has already graduated %d years ago. \n", 0);
+  } else {
+    printf("Student will graduate in %d years. \n", 0);
+  }
 }
 
 int main(){
