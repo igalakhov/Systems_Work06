@@ -21,13 +21,13 @@ struct student return_example(){
   }
   new.osis[9] = 0; // null terminator
   new.name = name[rand() % 10];
-  new.yearof = 2020;
-  new.curyear = 2018;
+  new.yearof = 1000 + (rand() % 1000);
+  new.curyear = new.yearof - (rand() % 10) + 5;
   return new;
 }
 
-void promote(struct student in) {
-  in.curyear++;
+void promote(struct student * in) {
+  in->curyear++;
 }
 
 void print_student(struct student in){
@@ -38,9 +38,9 @@ void print_student(struct student in){
 
   // if statemnt
   if (in.yearof < in.curyear)
-    printf("%s has graduated %d years ago.\n", in.name, in.yearof - in.curyear);
+    printf("%s has graduated %d years ago.\n", in.name, abs(in.yearof - in.curyear));
   else if (in.yearof == in.curyear)
-    printf("%s is graduating this year.", in.name);
+    printf("%s is graduating this year. \n", in.name);
   else
     printf("%s will graduate in %d years. \n", in.name, in.yearof - in.curyear);
 }
@@ -53,7 +53,13 @@ int main(){
   struct student rand_student;
   rand_student = return_example();
   print_student(rand_student);
-	promote(rand_student);
+
+  printf("\nPromoting student... \n\n");
+
+  promote(&rand_student);
+
+  print_student(rand_student);
+
 
   return 0;
 }
