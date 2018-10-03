@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+char *name[10] = {"Bob Ross", "Henry Lau", "Evan Jones", "Melody Liu", "Kelly Foo", "Soojin Choi", "Lily Qian", "John Kim", "Krystal Gonzales", "David Li"};
+
 // declare struct
 struct student {
   char osis[10]; // student osis (always 10)
@@ -18,7 +20,7 @@ struct student return_example(){
       new.osis[i] = 48 + (rand() % 10);
   }
   new.osis[9] = 0; // null terminator
-  new.name = "Bob Ross";
+  new.name = name[rand() % 10];
   new.yearof = 2020;
   new.curyear = 2018;
   return new;
@@ -26,12 +28,6 @@ struct student return_example(){
 
 void promote(struct student in) {
   in.curyear++;
-	// while (in.curyear != in.yearof) {
-	// 	in.curyear++;
-	// 	printf("\n");
-	// 	print_student(in);
-	// }
-	// printf("\nCONGRADULATIONS! YOU HAVE GRADUATED.\n\n");
 }
 
 void print_student(struct student in){
@@ -41,11 +37,12 @@ void print_student(struct student in){
   printf("Current year: %hu\n", in.curyear);
 
   // if statemnt
-  if (0){
-    printf("Student has already graduated %d years ago. \n", 0);
-  } else {
-    printf("Student will graduate in %d years. \n", 0);
-  }
+  if (in.yearof < in.curyear)
+    printf("%s has graduated %d years ago.\n", in.name, in.yearof - in.curyear);
+  else if (in.yearof == in.curyear)
+    printf("%s is graduating this year.", in.name);
+  else
+    printf("%s will graduate in %d years. \n", in.name, in.yearof - in.curyear);
 }
 
 int main(){
